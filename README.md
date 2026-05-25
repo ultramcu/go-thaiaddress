@@ -7,7 +7,7 @@
 ข้อมูลเขตการปกครองของประเทศไทย (จังหวัด/อำเภอ/ตำบล พร้อมรหัสไปรษณีย์) สำหรับภาษา Go ฝังข้อมูลมาในตัว ค้นหา/เติมคำอัตโนมัติ/ตรวจสอบที่อยู่ได้ทันที ไม่ต้องต่อเน็ต
 
 A pure-Go, MIT-licensed library of Thailand's administrative areas — 77 provinces
-(จังหวัด), 930 districts (อำเภอ/เขต), and 7,452 subdistricts (ตำบล/แขวง) with
+(จังหวัด), 928 districts (อำเภอ/เขต), and 7,452 subdistricts (ตำบล/แขวง) with
 postal codes — fully embedded, with lookup, hierarchy navigation, autocomplete,
 validation, and address resolution. No network or files at runtime.
 
@@ -29,7 +29,7 @@ Requires Go 1.21+.
 ## Features
 
 - **Embedded dataset** via `go:embed` — zero network/filesystem access at runtime.
-- **Complete coverage** — 77 provinces, 930 districts, 7,452 subdistricts, postcodes.
+- **Complete coverage** — 77 provinces, 928 districts, 7,452 subdistricts, postcodes.
 - **Official DOPA geocodes** — 2-digit provinces (10–96), 4-digit districts,
   6-digit subdistricts; the hierarchy is derivable (`districtCode/100 == provinceCode`,
   `subCode/100 == districtCode`).

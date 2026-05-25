@@ -6,8 +6,8 @@ func TestSmoke(t *testing.T) {
 	if got := len(Provinces()); got != 77 {
 		t.Fatalf("provinces=%d want 77", got)
 	}
-	if got := len(Districts()); got != 930 {
-		t.Fatalf("districts=%d want 930", got)
+	if got := len(Districts()); got != 928 {
+		t.Fatalf("districts=%d want 928", got)
 	}
 	if got := len(Subdistricts()); got != 7452 {
 		t.Fatalf("subdistricts=%d want 7452", got)

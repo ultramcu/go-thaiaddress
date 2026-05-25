@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release of `go-thaiaddress`, a pure-Go, MIT-licensed library of
   Thailand's administrative areas.
 - Embedded dataset (via `go:embed`, no network or filesystem access at runtime):
-  77 provinces, 930 districts, and 7,452 subdistricts with postal codes. Data is
+  77 provinces, 928 districts, and 7,452 subdistricts with postal codes. Data is
   a reshaped snapshot (~2025-09) of `github.com/kongvut/thai-province-data` (MIT).
 - Core types: `Province`, `District`, `Subdistrict`, and `Region` (six regions
   with `.NameTH()` / `.NameEN()`).

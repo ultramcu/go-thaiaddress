@@ -20,7 +20,7 @@ official two-digit province codes were derived (see below).
 | Collection   | Thai           | Count |
 |--------------|----------------|-------|
 | Provinces    | จังหวัด        | 77    |
-| Districts    | อำเภอ / เขต    | 930   |
+| Districts    | อำเภอ / เขต    | 928   |
 | Subdistricts | ตำบล / แขวง    | 7,452 |
 
 ## Field schema of `areas.json`
@@ -109,5 +109,28 @@ To rebuild `areas.json` from a fresh upstream snapshot:
 3. Write the result to `data/areas.json` with a `source` line recording the
    upstream project, license, and snapshot date.
 
-4. Sanity-check the counts (77 / 930 / 7,452) and that every district/subdistrict
+4. Sanity-check the counts (77 / 928 / 7,452) and that every district/subdistrict
    parent resolves via integer division.
+
+## Validation against the DOPA dataset (2026-05)
+
+The geocodes and hierarchy were cross-checked against the Department of
+Provincial Administration (กรมการปกครอง, DOPA) `tambon` coordinate dataset.
+Outcome:
+
+- **Provinces:** all 77 codes match exactly.
+- **Districts:** matched the authoritative set after two corrections applied to
+  the upstream data — both factual fixes, not creative content:
+  1. Dropped two non-administrative pseudo-districts the upstream included
+     (`7074` "ท้องถิ่นเทศบาลตำบลบ้านฆ้อง", `9077` "ท้องถิ่นเทศบาลตำบลสำนักขาม");
+     both had zero subdistricts and are absent from DOPA. (930 → 928.)
+  2. Re-coded อำเภอเวียงเก่า, ขอนแก่น from the upstream's `4029` to the official
+     DOPA code `4026` (and its three subdistricts to `402602` / `402608` /
+     `402615`), preserving postcode 40150.
+- **Subdistricts:** the embedded set is intentionally kept from the upstream
+  (kongvut), which is *more* complete than the DOPA coordinate file (it includes
+  recent Bangkok แขวง splits and carries postal codes, which the DOPA coordinate
+  file does not). A small number of edge entries differ (e.g. the Pattaya
+  special administrative zone and a few uninhabited islands present only in the
+  DOPA points file); these are not included because they lack a postal code in
+  the upstream and are not standard addressable subdistricts.
