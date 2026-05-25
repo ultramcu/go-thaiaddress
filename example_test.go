@@ -54,3 +54,20 @@ func ExampleValidate() {
 	// <nil>
 	// true
 }
+
+func ExampleNormalizeName() {
+	// Leading administrative prefixes (Thai or English) are stripped so user
+	// input matches the stored names.
+	fmt.Println(thaiaddress.NormalizeName("อำเภอเมืองเชียงใหม่"))
+	fmt.Println(thaiaddress.NormalizeName("เขตพระนคร"))
+	// Output:
+	// เมืองเชียงใหม่
+	// พระนคร
+}
+
+func ExampleFindSubdistricts() {
+	// Subdistrict names repeat across provinces, so Find* returns every match.
+	subs := thaiaddress.FindSubdistricts("ในเมือง")
+	fmt.Println(len(subs) > 1)
+	// Output: true
+}

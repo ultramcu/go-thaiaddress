@@ -1,7 +1,9 @@
 # go-thaiaddress
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/ultramcu/go-thaiaddress.svg)](https://pkg.go.dev/github.com/ultramcu/go-thaiaddress)
+[![Release](https://img.shields.io/github/v/release/ultramcu/go-thaiaddress?sort=semver)](https://github.com/ultramcu/go-thaiaddress/releases)
 [![CI](https://github.com/ultramcu/go-thaiaddress/actions/workflows/ci.yml/badge.svg)](https://github.com/ultramcu/go-thaiaddress/actions/workflows/ci.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/ultramcu/go-thaiaddress)](https://goreportcard.com/report/github.com/ultramcu/go-thaiaddress)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ข้อมูลเขตการปกครองของประเทศไทย (จังหวัด/อำเภอ/ตำบล พร้อมรหัสไปรษณีย์) สำหรับภาษา Go ฝังข้อมูลมาในตัว ค้นหา/เติมคำอัตโนมัติ/ตรวจสอบที่อยู่ได้ทันที ไม่ต้องต่อเน็ต
