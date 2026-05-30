@@ -3,27 +3,27 @@ package thaiaddress
 // Province is a Thai province (จังหวัด). Bangkok (code 10) is administratively a
 // special area but is modelled as a province here.
 type Province struct {
-	Code   int    // official 2-digit DOPA code, 10–96
-	NameTH string // e.g. "กรุงเทพมหานคร"
-	NameEN string // e.g. "Bangkok"
-	Region Region
+	Code   int    `json:"code"`   // official 2-digit DOPA code, 10–96
+	NameTH string `json:"nameTh"` // e.g. "กรุงเทพมหานคร"
+	NameEN string `json:"nameEn"` // e.g. "Bangkok"
+	Region Region `json:"region"` // marshals as the integer Region code
 }
 
 // District is a Thai district: อำเภอ in most provinces, เขต in Bangkok.
 type District struct {
-	Code         int    // official 4-digit DOPA code; Code/100 == ProvinceCode
-	ProvinceCode int    // owning province's 2-digit code
-	NameTH       string // includes the "อำเภอ"/"เขต" sense via the source naming
-	NameEN       string
+	Code         int    `json:"code"`         // official 4-digit DOPA code; Code/100 == ProvinceCode
+	ProvinceCode int    `json:"provinceCode"` // owning province's 2-digit code
+	NameTH       string `json:"nameTh"`       // includes the "อำเภอ"/"เขต" sense via the source naming
+	NameEN       string `json:"nameEn"`
 }
 
 // Subdistrict is a Thai subdistrict: ตำบล in most provinces, แขวง in Bangkok.
 type Subdistrict struct {
-	Code         int // official 6-digit DOPA code; Code/100 == DistrictCode
-	DistrictCode int // owning district's 4-digit code
-	NameTH       string
-	NameEN       string
-	Postcode     int // 5-digit Thai postal code (รหัสไปรษณีย์)
+	Code         int    `json:"code"`         // official 6-digit DOPA code; Code/100 == DistrictCode
+	DistrictCode int    `json:"districtCode"` // owning district's 4-digit code
+	NameTH       string `json:"nameTh"`
+	NameEN       string `json:"nameEn"`
+	Postcode     int    `json:"postcode"` // 5-digit Thai postal code (รหัสไปรษณีย์)
 }
 
 // Districts returns the districts of p, ordered by code. Returns nil for an
